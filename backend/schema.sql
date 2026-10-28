@@ -1,0 +1,15 @@
+CREATE DATABASE IF NOT EXISTS people_app;
+USE people_app;
+
+CREATE TABLE IF NOT EXISTS people (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  first_name VARCHAR(50) NOT NULL,
+  age TINYINT UNSIGNED NOT NULL,
+  barangay VARCHAR(100) NOT NULL DEFAULT '',
+  city VARCHAR(100) NOT NULL DEFAULT '',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- For databases created before these columns existed:
+-- ALTER TABLE people ADD COLUMN barangay VARCHAR(100) NOT NULL DEFAULT '' AFTER age;
+-- ALTER TABLE people ADD COLUMN city VARCHAR(100) NOT NULL DEFAULT '' AFTER barangay;
